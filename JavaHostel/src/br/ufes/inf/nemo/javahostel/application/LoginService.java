@@ -16,7 +16,7 @@ public class LoginService implements Serializable{
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public Guest login(String pwd, String email){
+	public Guest login(Guest guest){
 		long a = 1;
 		return entityManager.find(Guest.class,a);		
 	}

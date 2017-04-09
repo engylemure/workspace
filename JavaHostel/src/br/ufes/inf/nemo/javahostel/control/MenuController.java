@@ -22,8 +22,6 @@ public class MenuController implements Serializable{
 	private LoginService loginservice;
 	
 	private Guest guest;
-	private String password;
-	private String email;
 	
 	public Guest getGuest() {
 		return guest;
@@ -32,32 +30,13 @@ public class MenuController implements Serializable{
 	public void setGuest(Guest guest) {
 		this.guest = guest;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String login(){
 			try{
-				guest = loginservice.login(password, email);
+				guest = loginservice.login(guest);
 			}catch( EntityNotFoundException a ){
 				return "/menu/loginexception.xhtml"; 
 			}
 			if(guest == null) return "/menu/loginexception.xhtml";
-			else if(guest.getPassword().equals(password))
-				return "/menu/sucess.xhtml";
-			else return "/menu/pwdincorrect.xhtml";
+			else return "/menu/sucess.xhtml";
 	}
 }

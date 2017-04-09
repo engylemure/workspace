@@ -13,9 +13,9 @@
       	<h:form id="logForm">
       	<p>Log in To acces the options.</p>
       	
-      	<p>E-mail: <h:inputText id="email" value="#{menuController.email}" size="20" /></p>
+      	<p>E-mail: <h:inputText id="email" value="#{menuController.guest.email}" size="20" /></p>
       	
-      	<p>Password: <h:inputSecret id="password" value="#{menuController.password}" size="20" /></p>
+      	<p>Password: <h:inputSecret id="password" value="#{menuController.guest.password}" size="20" /></p>
       	
       	<p><h:commandButton action="#{menuController.login}" value="Login" /></p>
       	</h:form>
