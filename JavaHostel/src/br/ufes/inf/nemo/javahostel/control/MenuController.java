@@ -6,6 +6,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 
 import br.ufes.inf.nemo.javahostel.application.LoginService;
 import br.ufes.inf.nemo.javahostel.domain.Guest;
@@ -22,6 +23,7 @@ public class MenuController implements Serializable{
 	private LoginService loginservice;
 	
 	private Guest guest = new Guest();
+	private Guest user;
 	
 	public Guest getGuest() {
 		return guest;
@@ -32,11 +34,20 @@ public class MenuController implements Serializable{
 	}
 	public String login(){
 			try{
-				guest = loginservice.login(guest);
-			}catch( EntityNotFoundException a ){
-				return "/menu/loginexception.xhtml"; 
+			user = loginservice.login(guest);
+			}catch(NoResultException e){
+				return "/menu/loginexception.xhtml";
 			}
-			if(guest == null) return "/menu/loginexception.xhtml";
-			else return "/menu/sucess.xhtml";
+			System.out.println("Something is very wrong");
+			if(user.getPassword().equals(guest.getPassword())) return "/menu/sucess.xhtml";
+			else return "/menu/pwdincorrect.xhtml";
+	}
+
+	public Guest getUser() {
+		return user;
+	}
+
+	public void setUser(Guest user) {
+		this.user = user;
 	}
 }
