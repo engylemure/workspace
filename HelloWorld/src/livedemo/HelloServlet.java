@@ -1,13 +1,10 @@
 package livedemo;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
+import java.io.*;
+import java.util.*;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 public class HelloServlet extends HttpServlet {
 	/**
@@ -20,7 +17,6 @@ public class HelloServlet extends HttpServlet {
 		resp.setContentType("text/html");
 		try (PrintWriter out = resp.getWriter()) {
 			out.write("<html><head><title>Hello, Servlet!</title></head><body>");
-			out.write("<h1>Hello, World!</h1>");
 			out.write("<h1>Hello, " + req.getParameter("visitor") + "!</h1>");
 			out.write("<p>The time now is " + new Date() + "</p>");
 			out.write("</body></html>");

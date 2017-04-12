@@ -23,7 +23,7 @@ public class RegistrationService implements Serializable {
 	public void register(Guest guest) throws UnderAgeException {
 		int age = calculateAge(guest.getBirthDate());
 		if (age < 18) throw new UnderAgeException(age);
-		entityManager.persist(guest);
+		entityManager.merge(guest);
 	}
 
 	private int calculateAge(Date birthDate) {

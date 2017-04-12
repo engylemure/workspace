@@ -21,7 +21,7 @@ public class MenuController implements Serializable{
 	@EJB
 	private LoginService loginservice;
 	
-	private Guest guest;
+	private Guest guest = new Guest();
 	
 	public Guest getGuest() {
 		return guest;

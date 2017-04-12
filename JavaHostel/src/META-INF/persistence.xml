@@ -5,10 +5,6 @@
 	<persistence-unit name="JavaHostel">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/jboss/datasources/JavaHostel</jta-data-source>
-		<class>br.ufes.inf.nemo.javahostel.domain.Room</class>
-		<class>br.ufes.inf.nemo.javahostel.domain.Bed</class>
-		<class>br.ufes.inf.nemo.javahostel.domain.Guest</class>
-		<class>br.ufes.inf.nemo.javahostel.domain.Booking</class>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create" />
 		</properties>

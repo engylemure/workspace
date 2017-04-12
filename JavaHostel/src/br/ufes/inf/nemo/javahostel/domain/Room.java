@@ -1,5 +1,6 @@
 package br.ufes.inf.nemo.javahostel.domain;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -10,7 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Room {
+public class Room implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9047531532798610623L;
+
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 

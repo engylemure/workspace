@@ -4,25 +4,26 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      template="/resources/decorator.xhtml">
+      template="/resources/decorator.xhtml"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
       
       <ui:define name="title">Registration</ui:define>
       
       <ui:define name="contents">
       	<h1>Registration</h1>
       	
-      	<p>Fill in your data to become a guest at Java Hostel.</p>
+      	<p>Preencha com sues dados, para se tornar um visitante.</p>
       	
-      	<h:form id="regForm">
-      		<p>Name: <h:inputText id="name" value="#{registrationController.guest.name}" size="30" /></p>
+      	<h:form id="form">
+      		<p>Name: <h:inputText id="name" value="#{registrationController.guest.name}" size="30" pt:type="name" pt:placeholder="Entre com o seu nome"/></p>
       		
-      		<p>Birthdate: <h:inputText id="birthDate" value="#{registrationController.guest.birthDate}" size="10">
+      		<p>Birthdate: <h:inputText id="birthDate" value="#{registrationController.guest.birthDate}" size="10" pt:type="birthDate" pt:placeholder="dd/mm/yyyy">
       			<f:convertDateTime pattern="dd/MM/yyyy" />
       		</h:inputText></p>
       		
-      		<p>E-mail: <h:inputText id="email" value="#{registrationController.guest.email}" size="20" /></p>
+      		<p>E-mail: <h:inputText id="email" value="#{registrationController.guest.email}" size="20" pt:type="email" pt:placeholder="Entre com o seu Email"/></p>
       		
-      		<p>Password: <h:inputSecret id="password" value="#{registrationController.guest.password}" size="20" /></p>
+      		<p>Password: <h:inputSecret id="password" value="#{registrationController.guest.password}" size="20" pt:type="password" pt:placeholder="Entre com sua senha"/></p>
       		
       		<p><h:commandButton action="#{registrationController.register}" value="Register" /></p>
       	</h:form>

@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Booking {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id //@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@ManyToOne
