@@ -34,13 +34,19 @@ public class MenuController implements Serializable{
 	}
 	public String login(){
 			try{
-			user = loginservice.login(guest);
+			user = loginservice.login(guest,user);
 			}catch(NoResultException e){
 				return "/menu/loginexception.xhtml";
 			}
-			System.out.println("Something is very wrong");
-			if(user.getPassword().equals(guest.getPassword())) return "/menu/sucess.xhtml";
-			else return "/menu/pwdincorrect.xhtml";
+			System.out.println(user.getPassword()+" // " +guest.getPassword());
+			if(user.getPassword().equals(guest.getPassword())) {
+				System.out.println("Something is very wrong");
+				return "/menu/success.xhtml";
+			}
+			else {
+				System.out.println("Something is very realy wrong");
+				return "/menu/pwdincorrect.xhtml";
+			}
 	}
 
 	public Guest getUser() {

@@ -17,14 +17,14 @@ public class LoginService implements Serializable{
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public Guest login(Guest guest){
-		Guest user;
+	public Guest login(Guest guest,Guest user){
 		try{
 			user = entityManager.createQuery("SELECT u from Guest u WHERE u.email = :email",Guest.class).setParameter("email",guest.getEmail()).getSingleResult();
 		}catch(NoResultException e){
 			user = new Guest();
 		}
+		
 		System.out.println("Usuario:"+user.getName()+", Email: "+user.getEmail()+", Pwd: "+user.getPassword());
-		return 	user;
+		return user;
 	}
 }
