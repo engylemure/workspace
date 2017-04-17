@@ -20,8 +20,9 @@ public class LoginService implements Serializable{
 	public Guest login(Guest guest,Guest user){
 		try{
 			user = entityManager.createQuery("SELECT u from Guest u WHERE u.email = :email",Guest.class).setParameter("email",guest.getEmail()).getSingleResult();
-		}catch(NoResultException e){
+		}catch(NoResultException | NullPointerException e){
 			user = new Guest();
+			return user;
 		}
 		
 		System.out.println("Usuario:"+user.getName()+", Email: "+user.getEmail()+", Pwd: "+user.getPassword());
