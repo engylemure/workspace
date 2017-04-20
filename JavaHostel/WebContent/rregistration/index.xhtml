@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      template="/resources/decorator.xhtml"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+      
+      <ui:define name="title">Registration</ui:define>
+      
+      <ui:define name="contents">
+      	<h1>Room Registration</h1>
+      	
+      	<p>Identifique o numero do quarto:</p>
+      	
+      	<h:form id="form">
+      		<p>Number: <h:inputText id="number" value="#{roomRegistrationController.room.number}" size="30" pt:type="name" pt:placeholder="Entre com o Numero do quarto"/></p>
+      		
+      		<p><h:commandButton action="#{roomRegistrationController.register}" value="Register" /></p>
+      	</h:form>
+      </ui:define>
+      
+</ui:composition>
